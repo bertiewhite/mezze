@@ -26,6 +26,8 @@ type AllRecipesResponse struct {
 
 func (rh *RecipesHandlers) getRecipeHanlder() func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+
 		if r.Method != "GET" {
 			w.WriteHeader(http.StatusNotFound)
 			return

@@ -1,2 +1,23 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { onMount } from "svelte";
+
+
+    type Recipe = {
+        id: string
+    }
+
+    let recipe:Recipe 
+
+    onMount( async () => {
+        recipe = await fetch("http://localhost:8080/recipes?id=213")
+            .then((response) => response.json())
+            .then((data) => data as Recipe)
+    })
+
+</script>
+
+{#if recipe}
+<p>{recipe.id}</p>
+{:else}
+<p> waiting.... </p>
+{/if}
