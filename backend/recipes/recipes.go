@@ -5,7 +5,7 @@ type Recipe struct {
 	Name        string       `json:"name"`
 	Author      string       `json:"author"`
 	Description string       `json:"description"`
-  Ingredients []string     `json:"ingredients"`
+	Ingredients []string     `json:"ingredients"`
 	Steps       []RecipeStep `json:"steps"`
 }
 

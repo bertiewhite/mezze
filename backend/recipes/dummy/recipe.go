@@ -4,11 +4,11 @@ import "mezze/recipes"
 
 func GetDummyRecipe() recipes.Recipe {
 	return recipes.Recipe{
-    Name:        "A Dummy Recipe With Nonsence Data",
+		Name:        "A Dummy Recipe With Nonsence Data",
 		Id:          "gid://mezze/Recipe/1234",
 		Author:      "Bertie White",
 		Description: "A delicious and very real recipe",
-    Ingredients: []string{"lime","lemon"},
+		Ingredients: []string{"lime", "lemon"},
 		Steps: []recipes.RecipeStep{
 			{
 				Priority:    0,
