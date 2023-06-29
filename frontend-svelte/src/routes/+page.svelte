@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-
     type Recipe = {
+        name: string 
         id: string
         author: string
-        method: { description: string }[]
+        ingredients: string[]
+        steps: { description: string }[]
     }
 
     let recipe:Recipe 
@@ -20,12 +21,22 @@
 
 {#if recipe}
 <div>
-    <p>Recipe ID: {recipe.id}</p>
-    <ol>
-        {#each recipe.method as step}
+    <p>Name: {recipe.name}</p>
+    <div>
+      <h3>Method</h3>
+      <ol>
+        {#each recipe.steps as step}
             <li>{step.description}</li>
         {/each}
-    </ol>
+      </ol>
+      <h3>Ingredients</h3>
+      <ul>
+        {#each recipe.ingredients as i}
+          <li>{i}</li>
+        {/each}
+      </ul>
+        
+    </div>
 </div>
 
 {:else}
